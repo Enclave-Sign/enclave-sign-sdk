@@ -44,4 +44,4 @@ npm run build
 
 ## License
 
-AGPL-3.0-or-later — contact Enclave for commercial licensing.
+AGPL-3.0-or-later — see [LICENSE](./LICENSE). Contact Enclave for commercial licensing.
