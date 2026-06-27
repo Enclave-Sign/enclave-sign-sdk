@@ -1,0 +1,51 @@
+{
+  "name": "@enclave/sign-sdk",
+  "version": "0.1.0",
+  "description": "Post-quantum document signing cryptography for Enclave Sign",
+  "license": "AGPL-3.0-or-later",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./envelope": {
+      "types": "./dist/envelope-crypto.d.ts",
+      "import": "./dist/envelope-crypto.js"
+    },
+    "./decrypt": {
+      "types": "./dist/decrypt-envelope.d.ts",
+      "import": "./dist/decrypt-envelope.js"
+    },
+    "./signing-tokens": {
+      "types": "./dist/signing-tokens.d.ts",
+      "import": "./dist/signing-tokens.js"
+    },
+    "./sender-keys": {
+      "types": "./dist/sender-keys.d.ts",
+      "import": "./dist/sender-keys.js"
+    },
+    "./recipient-signature": {
+      "types": "./dist/recipient-signature.d.ts",
+      "import": "./dist/recipient-signature.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@enclave/pqc-core": "file:../../Enclave-Encrypt/enclave-pqc-core",
+    "@noble/hashes": "^1.8.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Enclave-Sign/enclave-sign-sdk"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.21",
+    "typescript": "^5.8.3"
+  }
+}
