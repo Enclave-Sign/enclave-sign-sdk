@@ -30,6 +30,10 @@
     "./recipient-signature": {
       "types": "./dist/recipient-signature.d.ts",
       "import": "./dist/recipient-signature.js"
+    },
+    "./verify-signature": {
+      "types": "./dist/verify-signature.d.ts",
+      "import": "./dist/verify-signature.js"
     }
   },
   "scripts": {

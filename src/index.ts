@@ -3,6 +3,7 @@ export * from "./decrypt-envelope.js";
 export * from "./sender-keys.js";
 export * from "./signing-tokens.js";
 export * from "./recipient-signature.js";
+export * from "./verify-signature.js";
 
 export {
   ENCLAVE_PQ_SUITE_V1,
