@@ -12,37 +12,37 @@
       "import": "./dist/index.js"
     },
     "./envelope": {
-      "types": "./dist/envelope-crypto.d.ts",
-      "import": "./dist/envelope-crypto.js"
+      "types": "./dist/envelope/index.d.ts",
+      "import": "./dist/envelope/index.js"
     },
     "./decrypt": {
-      "types": "./dist/decrypt-envelope.d.ts",
-      "import": "./dist/decrypt-envelope.js"
+      "types": "./dist/decrypt/index.d.ts",
+      "import": "./dist/decrypt/index.js"
     },
     "./signing-tokens": {
-      "types": "./dist/signing-tokens.d.ts",
-      "import": "./dist/signing-tokens.js"
+      "types": "./dist/tokens/index.d.ts",
+      "import": "./dist/tokens/index.js"
     },
     "./sender-keys": {
-      "types": "./dist/sender-keys.d.ts",
-      "import": "./dist/sender-keys.js"
+      "types": "./dist/keys/index.d.ts",
+      "import": "./dist/keys/index.js"
     },
     "./recipient-signature": {
-      "types": "./dist/recipient-signature.d.ts",
-      "import": "./dist/recipient-signature.js"
+      "types": "./dist/signature/recipient.d.ts",
+      "import": "./dist/signature/recipient.js"
     },
     "./verify-signature": {
-      "types": "./dist/verify-signature.d.ts",
-      "import": "./dist/verify-signature.js"
+      "types": "./dist/signature/verify.d.ts",
+      "import": "./dist/signature/verify.js"
     }
   },
   "scripts": {
     "build": "tsc",
+    "test": "tsx --test tests/**/*.test.ts",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@enclave/pqc-core": "file:../../Enclave-Encrypt/enclave-pqc-core",
-    "@noble/hashes": "^1.8.0"
+    "@enclave/pqc-primitives": "file:../../Enclave-Inc/enclave-pqc-primitives"
   },
   "repository": {
     "type": "git",
@@ -50,6 +50,10 @@
   },
   "devDependencies": {
     "@types/node": "^22.15.21",
+    "tsx": "^4.19.4",
     "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }

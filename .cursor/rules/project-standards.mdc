@@ -1,0 +1,14 @@
+---
+description: Core standards for enclave-sign-sdk
+alwaysApply: true
+---
+
+# enclave-sign-sdk standards
+
+- Document signing crypto only — no app UI, storage backends, or API handlers.
+- Import `@enclave/pqc-primitives` for all cryptography; never import `@noble/*` directly.
+- One folder per concern: `envelope/`, `decrypt/`, `keys/`, `tokens/`, `signature/`, `manifest/`.
+- Manifest canonicalization lives in `manifest/` and is shared by encrypt + verify paths.
+- Validate inputs at public API boundaries.
+- Tests live in `tests/`, not under `src/`.
+- Top-level shim files (`envelope-crypto.ts`, etc.) exist for Deno vendor paths — do not add logic there.

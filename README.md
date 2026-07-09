@@ -1,6 +1,19 @@
 # @enclave/sign-sdk
 
-Post-quantum document signing SDK for **Enclave Sign**. Open-source (AGPL-3.0-or-later) cryptography built on [`@enclave/pqc-core`](https://github.com/Enclave-Encrypt/enclave-pqc-core).
+Post-quantum document signing SDK for **Enclave Sign**. Open-source (AGPL-3.0-or-later) cryptography built on [`@enclave/pqc-primitives`](https://github.com/Enclave-Inc/enclave-pqc-primitives).
+
+## Layout
+
+```text
+src/
+  envelope/         Encrypt envelope packages
+  decrypt/          Decrypt recipient documents
+  keys/             Sender ML-DSA key persistence
+  tokens/           Signing-link tokens
+  signature/        Recipient signatures + verification
+  manifest/         Canonical manifest builder
+tests/              Round-trip tests
+```
 
 ## Enclave Sign repos
 
@@ -9,20 +22,18 @@ Post-quantum document signing SDK for **Enclave Sign**. Open-source (AGPL-3.0-or
 | **enclave-sign** | Enclave-Sign | Web app (Next.js) |
 | **enclave-sign-sdk** | Enclave-Sign | This package — AGPL crypto |
 | **enclave-sign-api** | Enclave-Encrypt | Supabase edge functions + Sign migrations |
-| **enclave-pqc-core** | Enclave-Encrypt | Shared NIST PQ primitives |
-
-App and API both depend on this SDK so crypto can be audited in one place.
+| **enclave-pqc-primitives** | Enclave-Inc | Shared NIST PQ primitives |
 
 ## Install
 
 ```bash
-npm install @enclave/sign-sdk @enclave/pqc-core
+npm install @enclave/sign-sdk @enclave/pqc-primitives
 ```
 
 Monorepo sibling (local dev):
 
 ```json
-"@enclave/pqc-core": "file:../../Enclave-Encrypt/enclave-pqc-core"
+"@enclave/pqc-primitives": "file:../../Enclave-Inc/enclave-pqc-primitives"
 ```
 
 ## Usage
@@ -38,7 +49,10 @@ import {
 ## Development
 
 ```bash
+cd ../../Enclave-Inc/enclave-pqc-primitives && npm run build
 npm install
+npm run typecheck
+npm test
 npm run build
 ```
 

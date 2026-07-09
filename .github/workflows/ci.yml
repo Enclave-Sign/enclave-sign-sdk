@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: Enclave-Sign/enclave-sign-sdk
+
+      - uses: actions/checkout@v4
+        with:
+          repository: Enclave-Inc/enclave-pqc-primitives
+          path: Enclave-Inc/enclave-pqc-primitives
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Build pqc-primitives
+        working-directory: Enclave-Inc/enclave-pqc-primitives
+        run: |
+          npm ci
+          npm run build
+
+      - name: Verify sign-sdk
+        working-directory: Enclave-Sign/enclave-sign-sdk
+        run: |
+          npm ci
+          npm run typecheck
+          npm test
+          npm run build

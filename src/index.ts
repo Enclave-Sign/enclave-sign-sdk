@@ -1,13 +1,13 @@
-export * from "./envelope-crypto.js";
-export * from "./decrypt-envelope.js";
-export * from "./sender-keys.js";
-export * from "./signing-tokens.js";
-export * from "./recipient-signature.js";
-export * from "./verify-signature.js";
+export * from "./envelope/index.js";
+export * from "./decrypt/index.js";
+export * from "./keys/index.js";
+export * from "./tokens/index.js";
+export * from "./signature/index.js";
+export * from "./manifest/index.js";
 
 export {
   ENCLAVE_PQ_SUITE_V1,
   SUITE_ID,
   encodeMlDsaPublicKey,
   getDefaultPqcProvider,
-} from "@enclave/pqc-core";
+} from "@enclave/pqc-primitives";
